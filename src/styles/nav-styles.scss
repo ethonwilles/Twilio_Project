@@ -1,0 +1,34 @@
+.nav-bar{
+    display: flex;
+    align-items: center;
+    background-color: $backgroundColor;
+    height: 45px;
+    .left-side{
+        flex: auto;
+        text-align: left;
+        a{
+            text-decoration: none;
+            padding: 10px;
+            width: 30px;
+        }
+    }
+    .right-side{
+        flex: inherit;
+        a{
+            text-decoration: none;
+            padding: 10px;
+            width: 30px;
+        }
+    }
+}
+
+a{
+    color: $textcolor;
+    font-weight: 650;
+    vertical-align: middle;
+    transition: .2s ease-in-out;
+    &:hover{
+        background-color: $textcolor;
+        color: $backgroundColor;
+    }
+}

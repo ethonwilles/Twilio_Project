@@ -1,0 +1,52 @@
+.conv-page {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  .left-column {
+    display: flex;
+    flex-direction: column;
+    background-color: $backgroundColor;
+    border: 2px solid lightgray;
+    height: 100vh;
+    .new-contact {
+      vertical-align: middle;
+      background-color: $backgroundColor;
+      height: 60px;
+      width: 100%;
+      border: 2px solid lightgray;
+      &:hover {
+        cursor: pointer;
+      }
+      &:focus {
+        outline: 0;
+      }
+    }
+    .Contact {
+      vertical-align: middle;
+      background-color: $backgroundColor;
+      height: 60px;
+      width: 100%;
+      border: 2px solid lightgray;
+      &:hover {
+        box-shadow: inset 0px 0px 7px 0px rgba(0, 0, 0, 0.7);
+      }
+      &:focus {
+        box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.7);
+        outline: 0;
+      }
+    }
+  }
+  .right-column {
+    background-color: $backgroundColor;
+    border: 2px solid lightgray;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .content {
+      flex: auto;
+    }
+    input {
+      flex: inherit;
+    }
+  }
+}
