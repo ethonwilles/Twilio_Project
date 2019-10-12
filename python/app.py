@@ -33,17 +33,18 @@ def get_users():
     all_users = Users.query.all()
     result = users_schema.dump(all_users)
     return jsonify(result)
-@app.route('/login-user/<username>/<password>', methods=["GET"])
-def login_user(username,password):
+@app.route('/login-user/<username>/<passW>', methods=["GET"])
+def login_user(username,passW):
     user_signed_up = Users.query.filter_by(username= username).first()
     if user_signed_up:
-        print(user_signed_up.password)
-        if str(user_signed_up.password) == str(password):
-            return {"LOGGED_IN" : True}
-        else:
-            return {"LOGGED_IN" : "Wrong Password!"}
-    else:
-        return {"LOGGED_IN" : "Not logged in, Cannot Find User"}
+        if user_signed_up.password == passW:
+            return {"LOGGED_IN": True}
+        else: 
+            return {"LOGGED_IN" : 'Wrong Password!'}
+    else: 
+        print('wrong')
+        return {"LOGGED_IN" : "Wrong Username!"}
+    
 @app.route("/new-user", methods=["POST"])
 def new_user():
     username = request.json["username"]

@@ -21,7 +21,11 @@ export default class SignUp extends Component {
       })
     })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+        if (typeof data.id === typeof 3) {
+          this.props.history.push("/");
+        }
+      })
       .catch(err => console.log(err));
   };
   render() {

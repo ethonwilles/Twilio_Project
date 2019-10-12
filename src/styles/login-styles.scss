@@ -14,6 +14,11 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
+      .invalid-pass {
+        color: #ffffff;
+        border-bottom: 3px solid $errorred;
+        background-color: $error-red-background;
+      }
     }
     p {
       font-weight: 500;

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
+import Invalid from "./invalidLogin";
 export default class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       username: "",
       password: "",
@@ -18,16 +19,23 @@ export default class Login extends Component {
     )
       .then(res => res.json())
       .then(data => {
-        if (data.LOGGED_IN) {
+        console.log(data);
+        if (data.LOGGED_IN === true) {
           this.setState({
             LOGGED_IN: true
+          });
+          document.querySelector(".login").style = { visibility: "hidden" };
+          this.props.history.push("/");
+        } else {
+          this.setState({
+            LOGGED_IN: data.LOGGED_IN
           });
         }
       })
       .catch(err => console.log(err));
   };
+
   render() {
-    console.log(this.state.LOGGED_IN);
     return (
       <div>
         <div className="login-page-wrapper">
@@ -37,24 +45,32 @@ export default class Login extends Component {
             <form onSubmit={this.handleLogIn}>
               <div className="username-wrapper">
                 <p>Enter Username</p>
+                {this.state.LOGGED_IN === "Wrong Username!" ? (
+                  <p className="invalid-pass">Invalid Username!</p>
+                ) : null}
                 <input
                   type="text"
                   name="username"
                   onChange={e => {
                     this.setState({
-                      username: e.target.value
+                      username: e.target.value,
+                      LOGGED_IN: false
                     });
                   }}
                 />
               </div>
               <div className="password-wrapper">
                 <p>Enter Password</p>
+                {this.state.LOGGED_IN === "Wrong Password!" ? (
+                  <p className="invalid-pass">Invalid Password!</p>
+                ) : null}
                 <input
                   type="password"
                   name="password"
                   onChange={e => {
                     this.setState({
-                      password: e.target.value
+                      password: e.target.value,
+                      LOGGED_IN: false
                     });
                   }}
                 />

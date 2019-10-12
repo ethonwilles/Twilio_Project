@@ -13,7 +13,7 @@ export default class Conv extends Component {
     return (
       <div className="conv-page">
         <div className="left-column">
-          <button className="new-contact">
+          <button className="new-contact" onClick={this.handleAddContact}>
             Add Contact <i class="fas fa-plus"></i>
           </button>
         </div>
