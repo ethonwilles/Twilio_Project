@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import Login from "../pages/login";
-
 export default class NavBar extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="nav-bar">

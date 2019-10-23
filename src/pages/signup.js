@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
 
+const url = "https://twilio-api-capstone.herokuapp.com/";
 export default class SignUp extends Component {
   constructor() {
     super();
@@ -12,7 +12,7 @@ export default class SignUp extends Component {
 
   handleCreateUser = e => {
     e.preventDefault();
-    fetch("http://localhost:5000/new-user", {
+    fetch(`${url}/new-user`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({

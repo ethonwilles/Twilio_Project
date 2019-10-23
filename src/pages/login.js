@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Invalid from "./invalidLogin";
+const url = "https://twilio-api-capstone.herokuapp.com/";
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -14,9 +14,7 @@ export default class Login extends Component {
   handleLogIn = e => {
     e.preventDefault();
 
-    fetch(
-      `http://localhost:5000/login-user/${this.state.username}/${this.state.password}`
-    )
+    fetch(`${url}/login-user/${this.state.username}/${this.state.password}`)
       .then(res => res.json())
       .then(data => {
         console.log(data);

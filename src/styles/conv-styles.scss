@@ -1,15 +1,24 @@
+body {
+  overflow: hidden;
+}
+
 .conv-page {
   display: grid;
   grid-template-columns: 1fr 4fr;
+
   .left-column {
     display: flex;
     flex-direction: column;
-    background-color: $backgroundColor;
+    background-color: $textcolor;
     border: 2px solid lightgray;
     height: 100vh;
+    overflow: auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     .new-contact {
       vertical-align: middle;
-      background-color: $backgroundColor;
+      background-image: linear-gradient(to right, silver, $backgroundColor);
       height: 60px;
       width: 100%;
       border: 2px solid lightgray;
@@ -22,7 +31,7 @@
     }
     .Contact {
       vertical-align: middle;
-      background-color: $backgroundColor;
+
       height: 60px;
       width: 100%;
       border: 2px solid lightgray;
@@ -38,12 +47,23 @@
   .right-column {
     background-color: $backgroundColor;
     border: 2px solid lightgray;
-    height: 100vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     position: relative;
+    overflow: auto;
+
     .content {
       flex: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      .user_message {
+        background-color: #0dd325;
+        border-radius: 50px;
+        width: 35%;
+        margin-left: 800px;
+      }
     }
     input {
       flex: inherit;
